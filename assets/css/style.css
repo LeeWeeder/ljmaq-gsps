@@ -186,6 +186,7 @@ img {
     background-color: var(--first-color-light);
     animation-name: nav-hover;
     animation-duration: 0.4s;
+    width: 100%;
 }
 
 @keyframes nav-hover {
