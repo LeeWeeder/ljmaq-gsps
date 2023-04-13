@@ -189,6 +189,10 @@ img {
     width: 100%;
 }
 
+.active_link:hover::after {
+    animation: unset;
+}
+
 @keyframes nav-hover {
     from {
         width: 10%;
