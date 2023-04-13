@@ -44,10 +44,13 @@ window.addEventListener('scroll', scrollActive)
 // ===== CHANGE BACKGROUND HEADER
 function scrollHeader() {
     const header = document.getElementById('header')
+    const nav = document.getElementById('nav')
     if (this.scrollY >= 200) {
         header.classList.add('scroll_header')
+        nav.classList.add('shrink_header')
     } else {
         header.classList.remove('scroll_header')
+        nav.classList.remove('shrink_header')
     }
 }
 window.addEventListener('scroll', scrollHeader)
@@ -65,7 +68,7 @@ window.addEventListener('scroll', scrollTop)
 
 // ===== GSAP ANIMATION
 gsap.from('.home_data', {opacity: 0, duration: 2, delay: 0.5, y: 25})
-gsap.from('.home_greeting, .home_name, .home_course-and-section, .home_button', {opacity: 0, duration: 2, delay: 0.8, y: 25, ease: 'expo.out', stagger: 0.2})
+gsap.from('.home_greeting, .home_name, .home_course-and-section', {opacity: 0, duration: 2, delay: 0.8, y: 25, ease: 'expo.out', stagger: 0.2})
 gsap.from('.nav_logo, .nav_toggle', {opacity: 0, duration: 2, delay: 1, y: 25, ease: 'expo.out', stagger: 0.2})
 gsap.from('.nav_item', {opacity: 0, duration: 2, delay: 1.5, y: 25, ease: 'expo.out', stagger: 0.2})
 gsap.from('.home_social-icon', {opacity: 0, duration: 2, delay: 1.8, y: 25, ease: 'expo.out', stagger: 0.2})

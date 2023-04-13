@@ -142,6 +142,11 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.4s;
+}
+
+.shrink_header {
+    height: calc(var(--header-height)) !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -557,6 +562,7 @@ iframe {
     .home_social-icon {
         margin-right: var(--mb-4);
         margin-bottom: 0;
+        font-size: var(--h1-font-size);
     }
 
     .about_description {
