@@ -177,6 +177,27 @@ img {
     color: var(--first-color-light);
 }
 
+.nav_link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    height: 3px;
+    background-color: var(--first-color-light);
+    animation-name: nav-hover;
+    animation-duration: 0.4s;
+}
+
+@keyframes nav-hover {
+    from {
+        width: 10%;
+    }
+    
+    to {
+        width: 100%;
+    }
+}
+
 .nav_logo, .nav_toggle {
     color: var(--first-color-lighten);
 }
