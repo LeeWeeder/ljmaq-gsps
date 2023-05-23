@@ -6,7 +6,7 @@
     --shadow-color: #111;
     --grid-dimension: 110px;
     --float-length: 20px;
-    --border-width: 3px;
+    --border-width: 2px;
 }
 
 * {
@@ -47,6 +47,31 @@ body,
 .see-report-button:hover,
 .full-name {
     background-color: var(--primary-color);
+}
+
+.grid {
+    position: relative;
+}
+
+.grid:hover::before {
+    opacity: 1;
+}
+
+.grid::before {
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.06), 
+        transparent 40%
+    );
+    height: 100%;
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: opacity 500ms;
+    left: 0;
+    z-index: 2;
 }
 
 .row {
@@ -96,12 +121,6 @@ a {
     position: relative;
     cursor: default;
     text-decoration: none;
-}
-
-.grid:hover,
-.row:nth-child(1) a:nth-child(1):hover .grid, 
-.row:nth-child(2) a:nth-child(3):hover .grid {
-    background-color: #313131;
 }
 
 .row:nth-child(1) a:nth-child(1):hover .grid {
@@ -155,8 +174,27 @@ a p,
     border: var(--border-width) solid var(--shadow-color);
     padding: 10px 5px;
     margin: 8px;
-    transition: all 0.2s;
+    transition: all 1s;
     font-size: 0.8rem;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.see-report-button::before {
+    background: var(--primary-color);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: -1;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 0;
+}
+
+.see-report-button:hover::before {
+    height: 400%;
 }
 
 .see-report-button:hover, .see-report-button:active {
@@ -170,6 +208,7 @@ a p,
     margin: 8px;
     transition: all 0.2s;
     background-color: transparent;
+    z-index: 3;
 }
 
 #button:hover {
