@@ -147,7 +147,7 @@ a p,
 .link,
 #gsps .grid, 
 .see-report-button,
-#button {
+#contact-button {
     cursor: pointer;
 }
 
@@ -171,7 +171,7 @@ a p,
 .see-report-button {
     background-color: var(--secondary-color);
     text-decoration: none;
-    border: var(--border-width) solid var(--shadow-color);
+    border: var(--border-width) solid transparent;
     padding: 10px 5px;
     margin: 8px;
     transition: all 1s;
@@ -202,25 +202,48 @@ a p,
     color: var(--secondary-color);
 }
 
-#button {
+#contact-button {
     border: var(--border-width) solid transparent;
     padding: 10px 5px;
     margin: 8px;
     transition: all 0.2s;
     background-color: transparent;
     z-index: 3;
+    overflow: hidden;
+    position: relative;
 }
 
-#button:hover {
+#contact-button::before {
+    background: var(--secondary-color);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: -2;
+    transition: all 0.3s ease;
+    width: 110%;
+    height: 0;
+}
+
+#contact-button:hover::before {
+    height: 400%;
+}
+
+#contact-button:hover {
     border-color: var(--secondary-color);
 }
 
-#button:active {
+#contact-button:active {
     border-color: transparent;
     background-color: var(--secondary-color);
 }
 
-#button:active p {
+#contact-button:active p {
+    color: var(--primary-color);
+}
+
+#contact-button:hover p {
     color: var(--primary-color);
 }
 
