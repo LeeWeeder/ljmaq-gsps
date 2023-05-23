@@ -70,3 +70,13 @@ const handleMouseEvent = e => {
 for (const grid of document.querySelectorAll(".grid")) {
     grid.onmousemove = e => handleMouseEvent(e);
 }
+
+const dialog = document.getElementById("contact-dialog");
+
+function openDialog() {
+    dialog.showModal();
+}
+
+function closeDialog() {
+    dialog.close();
+}

@@ -1,28 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 :root {
-    --secondary-color: white;
-    --primary-color: #222;
+    --secondary-color: rgb(231, 231, 231);
+    --primary-color: #040404;
     --shadow-color: #111;
     --grid-dimension: 110px;
     --float-length: 20px;
     --border-width: 2px;
 }
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Fira Code', monospace;
 }
 
 html,
 body,
 .description {
     height: 100%;
-}
-
-body {
-    font-family: 'Fira Code', monospace;
+    width: 100%;
 }
 
 body,
@@ -44,7 +42,7 @@ body,
 
 body,
 .grid,
-.see-report-button:hover,
+.button.right:hover,
 .full-name {
     background-color: var(--primary-color);
 }
@@ -146,8 +144,8 @@ a p,
 .clickable, 
 .link,
 #gsps .grid, 
-.see-report-button,
-#contact-button {
+.button,
+.button input {
     cursor: pointer;
 }
 
@@ -168,82 +166,76 @@ a p,
     transition: all 0.8s;
 }
 
-.see-report-button {
-    background-color: var(--secondary-color);
-    text-decoration: none;
-    border: var(--border-width) solid transparent;
-    padding: 10px 5px;
-    margin: 8px;
-    transition: all 1s;
-    font-size: 0.8rem;
-    z-index: 3;
-    overflow: hidden;
-}
-
-.see-report-button::before {
-    background: var(--primary-color);
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    z-index: -1;
-    transition: all 0.3s ease;
-    width: 100%;
-    height: 0;
-}
-
-.see-report-button:hover::before {
-    height: 400%;
-}
-
-.see-report-button:hover, .see-report-button:active {
-    border-color: var(--secondary-color);
-    color: var(--secondary-color);
-}
-
-#contact-button {
-    border: var(--border-width) solid transparent;
+.button {
     padding: 10px 5px;
     margin: 8px;
     transition: all 0.2s;
-    background-color: transparent;
-    z-index: 3;
+    text-decoration: none;
     overflow: hidden;
+    z-index: 3;
     position: relative;
+    border: var(--border-width) solid transparent;
+    font-size: 0.8rem;
 }
 
-#contact-button::before {
-    background: var(--secondary-color);
+.button.right {
+    background-color: var(--secondary-color);
+}
+
+.button.left {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.button::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
     z-index: -2;
     transition: all 0.3s ease;
-    width: 110%;
+    width: 200%;
     height: 0;
 }
 
-#contact-button:hover::before {
+.button.right::before {
+    background: var(--primary-color);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button.left::before {
+    background: var(--secondary-color);
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.button:hover::before {
     height: 400%;
 }
 
-#contact-button:hover {
+.button.right:hover, .button.right:active {
+    color: var(--secondary-color);
+}
+
+.button:hover, .button.right:active {
     border-color: var(--secondary-color);
 }
 
-#contact-button:active {
-    border-color: transparent;
-    background-color: var(--secondary-color);
-}
+.button.left:hover {
 
-#contact-button:active p {
     color: var(--primary-color);
 }
 
-#contact-button:hover p {
+.button.left:active {
+    border-color: transparent;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.button.left:active p {
+    color: var(--primary-color);
+}
+
+.button.left:hover p {
     color: var(--primary-color);
 }
 
@@ -272,3 +264,46 @@ a p,
 .hidden {
     display: none;
 }
+
+#contact-dialog {
+    margin: auto;
+    z-index: 5;
+    background-color: var(--primary-color);
+    border: var(--border-width) solid var(--secondary-color);
+    padding: 20px 50px;
+}
+
+input {
+    background: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1rem;
+    display: flex;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+    box-shadow: 0 0 0 2px rgb(204, 156, 0);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    box-shadow: 0 0 0 2px var(--secondary-color);
+}
+

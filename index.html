@@ -20,6 +20,28 @@
     <script src="assets/js/main.js" defer="preload"></script>
 </head>
 <body>
+    <dialog id="contact-dialog">
+        <form action="https://formsubmit.co/2b39e6ecb9a2a5ab7e758c3587236071" method="POST" class="contact-form">
+            <!-- Honeypot -->
+            <input type="text" name="_honey" style="display: none">
+
+            <!-- Disable Captcha -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <input type="hidden" name="_next" value="https://leeweeder.github.io/ljmaq-gsps/#contact">
+            <div class="contact-inputs">
+                <input type="text" placeholder="name" class="contact-input" name="name" required tabindex="1">
+                <input type="email" placeholder="email" class="contact-input" name="email" required tabindex="2">
+            </div>
+
+            <textarea name="message" cols="0" rows="2" placeholder="message" class="contact-input" required tabindex="3"></textarea>
+
+            <div class="button-container">
+                <button type="button" value="cancel" class="button left" tabindex="5" onclick="closeDialog()">cancel</button>
+                <button type="submit" class="button right" tabindex="4">send message</button>
+            </div>
+        </form>
+    </dialog>
     <div class="container">
         <div class="row">
             <a href="" class="link">
@@ -55,13 +77,13 @@
         </div>
         <div class="row">
             <div class="grid">
-                <div id="contact-button" class="clickable">
+                <button onclick="openDialog()" class="clickable button left" tabindex="0">
                     <p>contact</p>
-                </div>
+                </button>
             </div>
             <div class="grid"></div>
             <div class="grid">
-                <a href="presentation.html" class="see-report-button">See Report</a>
+                <a href="presentation.html" class="button right">see report</a>
             </div>
         </div>
     </div>
