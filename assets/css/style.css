@@ -302,8 +302,53 @@ button:focus-visible,
     box-shadow: 0 0 0 2px rgb(204, 156, 0);
 }
 
-input:focus-visible,
-textarea:focus-visible {
-    box-shadow: 0 0 0 2px var(--secondary-color);
+.contact-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 200px;
 }
 
+.contact-input {
+    height: 3rem;
+    padding: 16px;
+}
+
+.contact-input, textarea {
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    width: 100%;
+}
+
+.contact-input::placeholder {
+    opacity: 0;
+}
+
+label {
+    color: var(--secondary-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-label {
+    position: absolute;
+    margin-left: 8px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    transition: 0.2s ease all, 0.2s ease background-color 0.07s;
+    padding: 8px;
+}
+
+label:focus-within > .input-label,
+input:not(:placeholder-shown) + .input-label {
+    transform: translateY(-1.5rem);
+    padding: 0 8px;
+    background-color: var(--primary-color);
+}
+
+label:focus-within > .contact-input,
+input:not(:placeholder-shown) {
+    border-width: 2px;
+}
