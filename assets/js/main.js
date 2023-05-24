@@ -72,6 +72,7 @@ for (const grid of document.querySelectorAll(".grid")) {
 }
 
 const dialog = document.getElementById("contact-dialog");
+dialog.onmousemove = e => handleMouseEvent(e);
 
 function openDialog() {
   dialog.showModal();
