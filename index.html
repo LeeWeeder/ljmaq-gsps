@@ -40,7 +40,10 @@
                 </label>
             </div>
 
-            <textarea name="message" cols="0" rows="2" placeholder="message" class="contact-input" required tabindex="3"></textarea>
+            <label for="message">
+                <textarea name="message" cols="0" rows="5" required tabindex="3" id="message"></textarea>
+                <span class="message-label">message</span>
+            </label>
 
             <div class="button-container">
                 <button type="button" value="cancel" class="button left" tabindex="5" onclick="closeDialog()">cancel</button>
