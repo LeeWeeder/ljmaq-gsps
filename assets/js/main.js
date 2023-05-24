@@ -1,74 +1,83 @@
-// ===== SHOW MENU =====
-const showMenu = (toggleId, navId) => {
-    const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId)
+const gspsGrid = document.getElementById("gsps-grid");
+const gsps = document.getElementById("gsps");
 
-    if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-            nav.classList.toggle('show_menu')
-        })
-    }
+let isGSPSGridClicked = false;
+
+gsps.addEventListener("click", () => {
+  if (!isGSPSGridClicked) {
+    gspsGrid.classList.add('move');
+    isGSPSGridClicked = true;
+  } else {
+    gspsGrid.classList.remove('move');
+    isGSPSGridClicked = false;
+  }
+});
+
+const fullName = document.getElementById("full-name");
+
+const firstName = document.getElementById("first-name");
+const lastName = document.getElementById("last-name");
+
+let isFirstNameMovedUp = false;
+let isLastNameMovedUp = false;
+
+function move(namePartGrid, state) {
+  if (state) {
+    namePartGrid.classList.remove("move-up");
+    return !state;
+  }
+
+  namePartGrid.classList.add("move-up");
+  return !state;
 }
-showMenu('nav-toggle', 'nav-menu')
 
-// ===== REMOVE MENU MOBILE
-const navLink = document.querySelectorAll('.nav_link')
+firstName.addEventListener("click", () => {
+  isFirstNameMovedUp = move(firstName, isFirstNameMovedUp);
+  showFullName();
+})
 
-function linkAction() {
-    const navMenu = document.getElementById('nav-menu')
-    navMenu.classList.remove('show_menu')
+lastName.addEventListener("click", () => {
+  isLastNameMovedUp = move(lastName, isLastNameMovedUp);
+  showFullName();
+})
+
+function showFullName() {
+  if (isFirstNameMovedUp && isLastNameMovedUp) {
+    fullName.classList.remove("hidden");
+  } else {
+    fullName.classList.add("hidden");
+  }
 }
 
-navLink.forEach(n => n.addEventListener('click', linkAction))
+fullName.addEventListener("click", () => {
+  fullName.classList.add("hidden");
+  isFirstNameMovedUp = move(firstName, isFirstNameMovedUp);
+  isLastNameMovedUp = move(lastName, isLastNameMovedUp);
+})
 
-// ===== SCROLL SECTIONS ACTIVE LINK
-const sections = document.querySelectorAll('section[id]')
+const handleMouseEvent = e => {
+  const { currentTarget: target } = e;
 
-function scrollActive() {
-    const scrollY = window.scrollY
+  const rect = target.getBoundingClientRect(),
+    x = e.clientX - rect.left;
+  y = e.clientY - rect.top;
 
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50
-        sectionId = current.getAttribute('id')
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.add('active_link')
-        } else {
-            document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.remove('active_link')
-        }
-    })
+  target.style.setProperty("--mouse-x", `${x}px`);
+  target.style.setProperty("--mouse-y", `${y}px`);
 }
-window.addEventListener('scroll', scrollActive)
 
-// ===== CHANGE BACKGROUND HEADER
-function scrollHeader() {
-    const header = document.getElementById('header')
-    const nav = document.getElementById('nav')
-    if (this.scrollY >= 200) {
-        header.classList.add('scroll_header')
-        nav.classList.add('shrink_header')
-    } else {
-        header.classList.remove('scroll_header')
-        nav.classList.remove('shrink_header')
-    }
+
+for (const grid of document.querySelectorAll(".grid")) {
+  grid.onmousemove = e => handleMouseEvent(e);
 }
-window.addEventListener('scroll', scrollHeader)
 
-// ===== SHOW SCROLL TOP
-function scrollTop() {
-    const scrollTop = document.getElementById('scroll-top')
-    if (this.scrollY >= 560) {
-        scrollTop.classList.add('show_scroll')
-    } else {
-        scrollTop.classList.remove('show_scroll')
-    }
+const dialog = document.getElementById("contact-dialog");
+dialog.onmousemove = e => handleMouseEvent(e);
+
+function openDialog() {
+  dialog.showModal();
 }
-window.addEventListener('scroll', scrollTop)
 
-// ===== GSAP ANIMATION
-gsap.from('.home_data', {opacity: 0, duration: 2, delay: 0.5, y: 25})
-gsap.from('.home_greeting, .home_name, .home_course-and-section', {opacity: 0, duration: 2, delay: 0.8, y: 25, ease: 'expo.out', stagger: 0.2})
-gsap.from('.nav_logo, .nav_toggle', {opacity: 0, duration: 2, delay: 1, y: 25, ease: 'expo.out', stagger: 0.2})
-gsap.from('.nav_item', {opacity: 0, duration: 2, delay: 1.5, y: 25, ease: 'expo.out', stagger: 0.2})
-gsap.from('.home_social-icon', {opacity: 0, duration: 2, delay: 1.8, y: 25, ease: 'expo.out', stagger: 0.2})
+function closeDialog() {
+  dialog.close();
+}

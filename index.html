@@ -2,176 +2,106 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyniel Jhay Maquilan - GSPS</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-    <link rel="manifest" href="favicons/site.webmanifest">
-
-    <!-- ===== BOX ICONS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyniel Jhay Maquilan | GSPS</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+  <link rel="manifest" href="assets/icon/site.webmanifest">
+  <link rel="mask-icon" href="assets/icon/safari-pinned-tab.svg" color="#333333">
+  <link rel="shortcut icon" href="assets/icon/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="LJ GSPS">
+  <meta name="application-name" content="LJ GSPS">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="assets/icon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer="preload"></script>
 </head>
 
 <body>
-    <!-- ===== SCROLL TOP ===== -->
-    <a href="#" class="scrolltop" id="scroll-top">
-        <i class='bx bx-chevron-up scrolltop_icon'></i>
-    </a>
+  <dialog id="contact-dialog">
+    <div class="form-container">
+      <form action="https://formsubmit.co/2b39e6ecb9a2a5ab7e758c3587236071" method="POST" class="contact-form">
+        <p>contact</p>
+        <input type="text" name="_honey" style="display: none">
+        <input type="hidden" name="_captcha" value="false">
 
-    <!-- ===== HEADER ===== -->
-    <header class="one-header" id="header">
-        <nav class="nav bd-container" id="nav">
-            <a href="#" class="nav_logo">Lyniel Jhay Maquilan</a>
-
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list">
-                    <li class="nav_item"><a href="#home" class="nav_link active_link">Home</a></li>
-                    <li class="nav_item"><a href="#about" class="nav_link">About</a></li>
-                    <li class="nav_item"><a href="#report" class="nav_link">Report</a></li>
-                    <li class="nav_item"><a href="#contact" class="nav_link">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="nav_toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-        </nav>
-    </header>
-
-    <main class="one-main">
-        <!-- ===== HOME ====== -->
-        <section class="home" id="home">
-            <div class="home_container bd-container bd-grid">
-                <div class="home_data">
-                    <span class="home_greeting">Hello, I am</span>
-                    <h1 class="home_name">Lyniel Jhay Maquilan</h1>
-                    <span class="home_course-and-section">BSIT-1A @ CTU - Bantayan Extension</span>
-                    <a href="#report" class="button button-light home_button">See Report</a>
-                </div>
-
-                <div class="home_social">
-                    <a href="https://facebook.com/lynielmaquilan/" class="home_social-icon"><i class='bx bxl-facebook-square'></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== ABOUT ===== -->
-        <section class="about section bd-container" id="about">
-            <div class="about_container">
-                <span class="section-subtitle">Who I am</span>
-                <h2 class="section-title">About Me</h2>
-
-                <div class="bd-grid">
-                    <div class="about_data bd-grid">
-                        <p class="about_description"><span>Hello, I am <br></span>Lyniel Jhay Giltendez Maquilan. A
-                            first year Bachelor of Science in Information Technology (BSIT) student at Cebu
-                            Technological University (CTU) - Bantayan Extension Campus.</p>
-                    </div>
-                </div>
-
-                <div class="project_description"><span class="section-subtitle"><i
-                            class='bx bx-notepad project_icon'></i></span>
-                    <h2 class="section-title">Project Description</h2>
-
-                    <div class="bd-grid">
-                        <div class="about_data bd-grid">
-                            <p class="about_description"><span>This website serves<br></span> as my final project for
-                                Gender and Society with Peace Studies (GEE-GSPS) subject. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== REPORT ===== -->
-        <section id="report" class="report section bd-container">
-            <div class="report_container">
-                <span class="section-subtitle">Gender Lenses</span>
-                <h2 class="section-title">Report Presentation</h2>
-
-                <a class="expand" href="assets/gender-lenses.pdf" target="_blank"><i class='bx bx-expand expand_icon'></i></a>
-
-                <iframe src="assets/pages/presentation.html" frameborder="0" class="image_gallery"></iframe>
-            </div>
-            <a href="assets/gender-lenses.pdf" download="Gender Lenses" class="button button-light"><span><i
-                        class='bx bxs-download'></i></span> Download Report</a>
-        </section>
-
-        <!-- ===== CONTACT ME ===== -->
-        <section class="contact section bd-container" id="contact">
-            <span class="section-subtitle">For questions and other concerns</span>
-            <h2 class="section-title">Contact Me</h2>
-
-            <div class="contact_container bd-grid">
-                <div class="contact_content bd-grid">
-                    <div class="contact_box">
-                        <i class='bx bx-home contact_icon'></i>
-                        <h3 class="contact_title">Location</h3>
-                        <span class="contact_description">Putian, Bantayan, Cebu, Philippines</span>
-                    </div>
-
-                    <div class="contact_box">
-                        <i class='bx bx-envelope contact_icon'></i>
-                        <h3 class="contact_title">Gmail</h3>
-                        <span class="contact_description">ljmaq239@gmail.com</span>
-                    </div>
-
-                    <div class="contact_box">
-                        <i class='bx bx-chat contact_icon'></i>
-                        <h3 class="contact_title">Chat</h3>
-                        <div>
-                            <a href="https://m.me/lynielmaquilan" class="contact_social"><i class='bx bxl-messenger'></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <form action="https://formsubmit.co/2b39e6ecb9a2a5ab7e758c3587236071" method="POST" class="contact_form">
-                    <!-- Honeypot -->
-                    <input type="text" name="_honey" style="display: none">
-
-                    <!-- Disable Captcha -->
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <input type="hidden" name="_next" value="https://leeweeder.github.io/ljmaq-gsps/#contact">
-                    <div class="contact_inputs">
-                        <input type="text" placeholder="Name" class="contact_input" name="name" required>
-                        <input type="email" placeholder="Email" class="contact_input" name="email" required>
-                    </div>
-
-                    <textarea name="message" cols="0" rows="2" placeholder="Message" class="contact_input" required></textarea>
-
-                    <input type="submit" value="Send Message" class="button contact_button">
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="footer_container bd-container">
-            <h1 class="footer_title">LynJMaq</h1>
-            <p class="footer_description">I am Lyniel Jhay Maquilan and this is my GSPS portfolio website</p>
-
-            <div class="footer_social">
-                <a href="https://github.com/LeeWeeder/ljmaq-gsps" class="footer_link"><i class="bx bxl-github"></i></a>
-            </div>
-
-            <p class="footer_copy">&#169; 2023 LeeWeeder. All rights reserved</p>
-            <p class="footer_copy">Based from: Bedimcode (2020) Responsive Personal Complete Portfolio Website HTML CSS And JavaScript | Mobile First (Version 1.0) [Source code] https://www.youtube.com/@Bedimcode</p>
+        <input type="hidden" name="_next" value="https://leeweeder.github.io/ljmaq-gsps/#contact">
+        <div class="contact-inputs">
+          <label for="name">
+            <input type="text" class="contact-input" name="name" required tabindex="1" autocomplete="off"
+              placeholder="name" id="name">
+            <span>name</span>
+          </label>
+          <label for="email">
+            <input type="email" class="contact-input" name="email" required tabindex="2" autocomplete="off"
+              placeholder="email" id="email">
+            <span>email</span>
+          </label>
         </div>
-    </footer>
-    <!-- ===== GSAP ===== -->
-    <script src="assets/js/gsap.min.js"></script>
 
-    <!-- ===== MAIN JS ===== -->
-    <script src="assets/js/main.js"></script>
+        <label for="message">
+          <textarea name="message" cols="0" rows="5" required tabindex="3" id="message" placeholder="message"></textarea>
+          <span>message</span>
+        </label>
+
+        <div class="button-container">
+          <button type="button" value="cancel" class="button left" tabindex="5" onclick="closeDialog()">cancel</button>
+          <button type="submit" class="button right" tabindex="4">send message</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+
+  <div class="container">
+    <div class="row">
+      <a href="" class="link">
+        <div class="grid top">
+          <img src="assets/icon/transparent-personal-icon.svg" alt="icon" class="icon">
+        </div>
+      </a>
+      <div class="grid clickable" id="first-name">
+        <p>lyniel jhay</p>
+      </div>
+      <div class="grid clickable" id="last-name">
+        <p>maquilan</p>
+      </div>
+      <div class="full-name grid hidden clickable" id="full-name">
+        <p>lyniel jhay maquilan</p>
+      </div>
+    </div>
+    <div class="row">
+      <div id="gsps">
+        <div class="grid clickable" id="gsps-grid">
+          <p>gsps</p>
+        </div>
+        <div class="description">gender, society and peace studies</div>
+      </div>
+      <div class="grid">
+        <p>bsit-1a</p>
+      </div>
+      <a href="https://github.com/LeeWeeder" class="link">
+        <div class="grid right">
+          <p>github</p>
+        </div>
+      </a>
+    </div>
+    <div class="row">
+      <div class="grid">
+        <button onclick="openDialog()" class="clickable button left" tabindex="0">
+          <p>contact</p>
+        </button>
+      </div>
+      <div class="grid"></div>
+      <div class="grid">
+        <a href="presentation.html" class="button right">see report</a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
