@@ -71,16 +71,16 @@ for (const grid of document.querySelectorAll(".grid")) {
   grid.onmousemove = e => handleMouseEvent(e);
 }
 
-const dialog = document.getElementById("contact-dialog");
-dialog.onmousemove = e => handleMouseEvent(e);
+const contactDialog = document.getElementById("contact-dialog");
+contactDialog.onmousemove = e => handleMouseEvent(e);
 
 function openDialog() {
-  dialog.showModal();
+  contactDialog.showModal();
 }
 
 function closeDialog() {
   setTimeout(() => {
-    dialog.close();
+    contactDialog.close();
   }, 100);
 }
 
