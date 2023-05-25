@@ -86,18 +86,38 @@ function closeDialog() {
 
 let screen = document.querySelector("body");
 
-function setGridSize() {
-  let screenWidth = screen.offsetWidth;
-  let screenHeight = screen.offsetHeight;
-  let gridSize;
-  if (screenWidth < screenHeight) {
-    gridSize = 0.30 * screenWidth;
-  } else {
-    gridSize = 0.30 * screenHeight;
+class Dimension {
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
   }
-  document.documentElement.style.setProperty("--grid-dimension", `${gridSize}px`);
+}
+
+const smallestDimension = () => {
+  const width = screen.offsetWidth;
+  const height = screen.offsetHeight;
+  return width < height ? new Dimension("width", width) : new Dimension("height", height); 
+}
+
+function setGridSize() {
+  document.documentElement.style.setProperty("--grid-dimension", `${smallestDimension().size * 0.30}px`);
+}
+
+function setSnackbarPosition() {
+  const snackbar = document.getElementById("snackbar");
+  const response = document.getElementById("response");
+
+  if (smallestDimension().name === "height") {
+    snackbar.classList.add("top-right");
+    snackbar.classList.remove("bottom");
+  } else {
+    snackbar.classList.remove("top-right");
+    snackbar.classList.add("bottom");
+  }
 }
 
 setGridSize();
+setSnackbarPosition();
 
 new ResizeObserver(setGridSize).observe(screen);
+new ResizeObserver(setSnackbarPosition).observe(screen);
