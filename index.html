@@ -25,12 +25,8 @@
 <body class="max-size flex flex-center bg-primary">
   <dialog id="contact-dialog" class="relative bg-primary margin-auto width-80-percent">
     <div class="form-container margin-auto width-80-percent">
-      <form action="https://formsubmit.co/2b39e6ecb9a2a5ab7e758c3587236071" method="POST" class="contact-form flex max-width flex-column">
+      <form class="contact-form flex max-width flex-column" id="contact-form" action="https://formspree.io/f/mgebbzvn" method="post">
         <p class="cursor-default color-secondary center-text">contact</p>
-        <input type="text" name="_honey" style="display: none">
-        <input type="hidden" name="_captcha" value="false">
-
-        <input type="hidden" name="_next" value="https://leeweeder.github.io/ljmaq-gsps/#contact">
         <div class="contact-inputs flex z-2 flex-column">
           <label for="name" class="flex relative align-items-center color-secondary">
             <input type="text" class="contact-input max-size flex color-secondary" name="name" required tabindex="1" autocomplete="off"
@@ -113,5 +109,37 @@
     </div>
   </div>
 </body>
+
+<script>
+  var form = document.getElementById("contact-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        console.log("Thanks for your submission!");
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            console.log(data["errors"].map(error => error["message"]).join(", "));
+          } else {
+            console.log("Oops! There was a problem submitting your form");
+          }
+        })
+      }
+    }).catch(error => {
+      console.log("Oops! There was a problem submitting your form");
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
 
 </html>
