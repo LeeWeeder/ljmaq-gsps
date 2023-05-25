@@ -17,44 +17,50 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="assets/icon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="preload" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/css/page/index.css" as="style">
+  <link rel="preload" href="assets/css/global.css" as="style">
   <link rel="stylesheet" href="assets/css/page/index.css">
   <link rel="stylesheet" href="assets/css/global.css">
-  <script src="assets/js/index.js" defer="preload"></script>
+  <script src="assets/js/index.js" defer></script>
+  <script src="assets/js/contact-form.js" defer></script>
 </head>
 
 <body class="max-size flex flex-center bg-primary">
   <dialog id="contact-dialog" class="relative bg-primary margin-auto width-80-percent">
     <div class="form-container margin-auto width-80-percent">
-      <form class="contact-form flex max-width flex-column" id="contact-form" action="https://formspree.io/f/mgebbzvn" method="post">
+      <form class="contact-form flex max-width flex-column" id="contact-form" action="https://formspree.io/f/mgebbzvn"
+        method="post">
         <p class="cursor-default color-secondary center-text">contact</p>
         <div class="contact-inputs flex z-2 flex-column">
           <label for="name" class="flex relative align-items-center color-secondary">
-            <input type="text" class="contact-input max-size flex color-secondary" name="name" required tabindex="1" autocomplete="off"
-              placeholder="name" id="name">
+            <input type="text" class="contact-input max-size flex color-secondary" name="name" required tabindex="1"
+              autocomplete="off" placeholder="name" id="name">
             <span class="absolute">name</span>
           </label>
           <label for="email" class="flex relative align-items-center color-secondary">
-            <input type="email" class="contact-input max-size flex color-secondary" name="email" required tabindex="2" autocomplete="off"
-              placeholder="email" id="email">
+            <input type="email" class="contact-input max-size flex color-secondary" name="email" required tabindex="2"
+              autocomplete="off" placeholder="email" id="email">
             <span class="absolute">email</span>
           </label>
         </div>
-
         <label for="message" class="flex relative align-items-center color-secondary">
-          <textarea name="message" cols="0" rows="5" required tabindex="3" id="message"
-            placeholder="message" class="max-width z-2"></textarea>
+          <textarea name="message" cols="0" rows="5" required tabindex="3" id="message" placeholder="message"
+            class="max-width z-2"></textarea>
           <span class="absolute">message</span>
         </label>
-
         <div class="button-container flex max-width align-items-center">
           <button type="button" value="cancel" class="button left cursor-pointer relative color-secondary" tabindex="5"
             onclick="closeDialog()">cancel</button>
-          <button type="submit" class="button right cursor-pointer relative bg-secondary" tabindex="4">send message</button>
+          <button type="submit" class="button right cursor-pointer relative bg-secondary" tabindex="4">send
+            message</button>
         </div>
       </form>
     </div>
   </dialog>
-
   <div class="container flex bg-secondary flex-column">
     <div class="row relative flex">
       <a href="" class="link relative cursor-pointer color-primary">
@@ -62,84 +68,49 @@
           <img src="assets/icon/transparent-personal-icon.svg" alt="icon" class="icon">
         </div>
       </a>
-
       <div class="grid flex flex-center bg-primary relative clickable cursor-pointer size-grid-dimen" id="first-name">
         <p class="cursor-pointer color-secondary center-text">lyniel jhay</p>
       </div>
-
       <div class="grid flex flex-center bg-primary relative clickable cursor-pointer size-grid-dimen" id="last-name">
         <p class="cursor-pointer color-secondary center-text">maquilan</p>
       </div>
-
-      <div class="full-name grid flex flex-center bg-primary relative hidden clickable cursor-pointer absolute h-grid-dimen"
+      <div
+        class="full-name grid flex flex-center bg-primary relative hidden clickable cursor-pointer absolute h-grid-dimen"
         id="full-name">
         <p class="cursor-pointer color-secondary center-text">lyniel jhay maquilan</p>
       </div>
     </div>
-
     <div class="row relative flex">
       <div id="gsps" class="flex relative">
         <div class="grid flex flex-center bg-primary relative clickable cursor-pointer size-grid-dimen" id="gsps-grid">
           <p class="cursor-pointer color-secondary center-text">gsps</p>
         </div>
-        <div class="description max-size flex cursor-default absolute align-items-center color-primary center-text">gender, society and peace studies</div>
+        <div class="description max-size flex cursor-default absolute align-items-center color-primary center-text">
+          gender, society and peace studies</div>
       </div>
-
       <div class="grid flex flex-center bg-primary relative size-grid-dimen">
         <p class="cursor-default color-secondary center-text">bsit-1a</p>
       </div>
-
       <a href="https://github.com/LeeWeeder" class="link relative cursor-pointer color-primary">
         <div class="grid flex flex-center bg-primary relative right size-grid-dimen">
           <p class="cursor-pointer color-secondary center-text">github</p>
         </div>
       </a>
     </div>
-
     <div class="row relative flex">
       <div class="grid flex flex-center bg-primary relative size-grid-dimen">
-        <button onclick="openDialog()" class="clickable cursor-pointer button left relative color-secondary" tabindex="0">
+        <button onclick="openDialog()" class="clickable cursor-pointer button left relative color-secondary"
+          tabindex="0">
           <p class="cursor-pointer color-secondary center-text">contact</p>
         </button>
       </div>
       <div class="grid flex flex-center bg-primary relative size-grid-dimen"></div>
       <div class="grid flex flex-center bg-primary relative size-grid-dimen">
-        <a href="presentation.html" class="button right relative cursor-pointer bg-secondary color-primary">see report</a>
+        <a href="presentation.html" class="button right relative cursor-pointer bg-secondary color-primary">see
+          report</a>
       </div>
     </div>
   </div>
 </body>
-
-<script>
-  var form = document.getElementById("contact-form");
-  
-  async function handleSubmit(event) {
-    event.preventDefault();
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        console.log("Thanks for your submission!");
-        form.reset()
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            console.log(data["errors"].map(error => error["message"]).join(", "));
-          } else {
-            console.log("Oops! There was a problem submitting your form");
-          }
-        })
-      }
-    }).catch(error => {
-      console.log("Oops! There was a problem submitting your form");
-    });
-  }
-  form.addEventListener("submit", handleSubmit)
-</script>
 
 </html>
