@@ -309,6 +309,20 @@ textarea::placeholder,
   animation-name: show-dialog-animation;
 }
 
+#snackbar[open] {
+  animation: show-snackbar-animation 4s ease-in-out;
+  opacity: 0;
+}
+
+@keyframes show-snackbar-animation {
+  0%, 100% {
+    opacity: 0;
+  }
+  15%, 85% {
+    opacity: 1;
+  }
+}
+
 @keyframes show-dialog-animation {
   0% {
     opacity: 0;
@@ -361,6 +375,8 @@ form {
   height: 50px;
   padding: 0 12px;
 }
+
+
 
 .top-right {
   top: 1rem;
