@@ -81,3 +81,21 @@ function openDialog() {
 function closeDialog() {
   dialog.close();
 }
+
+let screen = document.querySelector("body");
+
+function setGridSize() {
+  let screenWidth = screen.offsetWidth;
+  let screenHeight = screen.offsetHeight;
+  let gridSize;
+  if (screenWidth < screenHeight) {
+    gridSize = 0.30 * screenWidth;
+  } else {
+    gridSize = 0.30 * screenHeight;
+  }
+  document.documentElement.style.setProperty("--grid-dimension", `${gridSize}px`);
+}
+
+setGridSize();
+
+new ResizeObserver(setGridSize).observe(screen);
