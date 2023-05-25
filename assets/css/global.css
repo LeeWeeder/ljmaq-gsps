@@ -16,5 +16,5 @@
 }
 
 html {
-  font-size: calc(0.1 * var(--grid-dimension));
+  font-size: calc(0.12 * var(--grid-dimension));
 }
