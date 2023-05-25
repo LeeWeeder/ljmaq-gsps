@@ -79,7 +79,9 @@ function openDialog() {
 }
 
 function closeDialog() {
-  dialog.close();
+  setTimeout(() => {
+    dialog.close();
+  }, 100);
 }
 
 let screen = document.querySelector("body");

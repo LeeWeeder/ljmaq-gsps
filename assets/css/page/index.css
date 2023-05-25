@@ -292,8 +292,29 @@ textarea {
 .contact-input::placeholder,
 textarea::placeholder,
 .grid::before,
-#contact-dialog::before {
+dialog::before {
   opacity: 0;
+}
+
+dialog[open] {
+  animation-duration: 0.4s;
+  animation-name: show-dialog-animation;
+}
+
+@keyframes show-dialog-animation {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+dialog {
+  border: none;
 }
 
 span {
