@@ -105,8 +105,6 @@ function setGridSize() {
 
 function setSnackbarPosition() {
   const snackbar = document.getElementById("snackbar");
-  const response = document.getElementById("response");
-
   if (smallestDimension().name === "height") {
     snackbar.classList.add("top-right");
     snackbar.classList.remove("bottom");
