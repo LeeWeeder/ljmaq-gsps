@@ -1,59 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
-
 :root {
-  --secondary-color: rgb(231, 231, 231);
-  --primary-color: #040404;
-  --shadow-color: #111;
-  --grid-dimension: 110px;
   --float-length: 20px;
   --border-width: 2px;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Fira Code", monospace;
-}
-
-html,
-body,
-.description {
+.max-size,
+.grid::before,
+#contact-dialog::before {
   height: 100%;
   width: 100%;
 }
 
-body,
-.container,
-.row,
-.grid,
-.description,
-#gsps,
-.full-name {
+.max-width {
+  width: 100%;
+}
+
+.flex {
   display: flex;
 }
 
-body,
-.grid,
-.full-name {
+.flex-center {
   justify-content: center;
-  align-items: center;
 }
 
-body,
-.grid,
+.bg-primary,
 .button.right:hover,
-.full-name {
+.button.right::before {
   background-color: var(--primary-color);
 }
 
-.grid, #contact-dialog {
+.relative {
   position: relative;
 }
 
-.grid:hover::before, #contact-dialog:hover::before {
+.grid:hover::before,
+#contact-dialog:hover::before {
   opacity: 1;
 }
 
@@ -65,15 +45,22 @@ body,
   );
 }
 
-.grid::before, #contact-dialog::before {
-  height: 100%;
+.grid::before,
+#contact-dialog::before,
+.button::before {
   content: "";
-  width: 100%;
-  position: absolute;
+}
+
+.grid::before,
+#contact-dialog::before {
   top: 0;
-  opacity: 0;
   transition: opacity 500ms;
   left: 0;
+}
+
+.z-2,
+.grid::before,
+#contact-dialog::before {
   z-index: 2;
 }
 
@@ -91,52 +78,42 @@ body,
   }
 }
 
-.row {
-  position: relative;
-}
-
-.container {
-  background-color: var(--secondary-color);
+.flex-column {
   flex-direction: column;
 }
 
+.bg-secondary,
+.button.left:active,
+.button.left::before {
+  background-color: var(--secondary-color);
+}
+
 .grid {
-  width: var(--grid-dimension);
-  height: var(--grid-dimension);
   transition: transform 0.2s;
+}
+
+.size-grid-dimen {
+  width: var(--grid-dimension);
+}
+
+.h-grid-dimen,
+.size-grid-dimen {
+  height: var(--grid-dimension);
 }
 
 .move {
   transform: translateX(calc(var(--grid-dimension) * -1));
 }
 
-#gsps > p {
-  height: var(--grid-dimension);
-  width: var(--grid-dimension);
-}
-
-@media (min-width: 400px) {
-  :root {
-    --grid-dimension: 120px;
-  }
-}
-
-@media (min-width: 700px) {
-  :root {
-    --grid-dimension: 160px;
-  }
-}
-
-@media (min-width: 1000px) {
-  :root {
-    --grid-dimension: 180px;
-  }
+.color-primary,
+.button.left:hover,
+.button.left:active,
+.button.left:active p,
+.button.left:hover p {
+  color: var(--primary-color);
 }
 
 a {
-  color: var(--primary-color);
-  position: relative;
-  cursor: default;
   text-decoration: none;
 }
 
@@ -153,36 +130,34 @@ a {
   box-shadow: -10px 0 0 0 var(--primary-color);
 }
 
-p,
-.description {
+.cursor-default {
   cursor: default;
 }
 
-p {
-  color: var(--secondary-color);
+.center-text {
   text-align: center;
 }
 
-a p,
-.clickable p,
-.clickable,
-.link,
-#gsps .grid,
-.button,
-.button input {
+.color-secondary,
+.button.right:hover,
+.button.right:active {
+  color: var(--secondary-color);
+}
+
+.cursor-pointer {
   cursor: pointer;
 }
 
-.description {
-  width: 100%;
-  color: var(--primary-color);
-  position: absolute;
-  text-align: center;
+.align-items-center,
+.flex-center {
   align-items: center;
 }
 
-#gsps {
-  position: relative;
+.absolute,
+.grid::before,
+#contact-dialog::before,
+.button::before {
+  position: absolute;
 }
 
 #gsps .grid {
@@ -194,26 +169,17 @@ a p,
   padding: 10px 5px;
   margin: 8px;
   transition: all 0.2s;
-  text-decoration: none;
   overflow: hidden;
   z-index: 3;
-  position: relative;
   border: var(--border-width) solid transparent;
   font-size: 0.8rem;
 }
 
-.button.right {
-  background-color: var(--secondary-color);
-}
-
 .button.left {
   background-color: transparent;
-  color: var(--secondary-color);
 }
 
 .button::before {
-  content: "";
-  position: absolute;
   top: 50%;
   left: 50%;
   z-index: -2;
@@ -223,12 +189,10 @@ a p,
 }
 
 .button.right::before {
-  background: var(--primary-color);
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .button.left::before {
-  background: var(--secondary-color);
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
@@ -236,36 +200,14 @@ a p,
   height: 400%;
 }
 
-.button.right:hover,
-.button.right:active {
-  color: var(--secondary-color);
-}
-
-.button:hover,
-.button.right:active {
-  border-color: var(--secondary-color);
-}
-
-.button.left:hover {
-  color: var(--primary-color);
-}
-
 .button.left:active {
   border-color: transparent;
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
-}
-
-.button.left:active p {
-  color: var(--primary-color);
-}
-
-.button.left:hover p {
-  color: var(--primary-color);
 }
 
 .icon {
-  margin: 20%;
+  --size: calc(0.5 * var(--grid-dimension));
+  width: var(--size);
+  height: var(--size);
 }
 
 .move-up,
@@ -280,8 +222,6 @@ a p,
 
 .full-name {
   width: calc(var(--grid-dimension) * 2);
-  height: var(--grid-dimension);
-  position: absolute;
   right: 0;
   top: calc(-1 * var(--float-length));
 }
@@ -290,29 +230,27 @@ a p,
   display: none;
 }
 
-#contact-dialog {
+.margin-auto {
   margin: auto;
+}
+
+.width-80-percent {
+  width: 80%;
+}
+
+#contact-dialog {
   z-index: 5;
-  background-color: var(--primary-color);
-  width: 90%;
   max-width: 500px;
 }
 
 input {
   background: none;
-  width: 100%;
-  height: 100%;
   border: none;
-  font-size: 1rem;
-  display: flex;
 }
 
 .button-container {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: 1rem 0;
-  width: 100%;
 }
 
 .button-container .button {
@@ -334,79 +272,56 @@ button:focus-visible,
 }
 
 .contact-inputs {
-  display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
-  height: 200px;
-  z-index: 2;
+  height: 10rem;
 }
 
 .contact-input {
-  height: 3rem;
-  padding: 16px;
+  height: 2rem;
+  padding: 1rem;
 }
 
 .contact-input,
 textarea {
   background-color: var(--shadow-color);
   border: 1px solid transparent;
-  color: var(--secondary-color);
-  width: 100%;
   transition: 0.2s all ease;
+  color: rgb(128, 128, 128);
 }
 
-.contact-input::placeholder, textarea::placeholder {
+.contact-input::placeholder,
+textarea::placeholder,
+.grid::before,
+#contact-dialog::before {
   opacity: 0;
 }
 
-label {
-  color: var(--secondary-color);
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
 span {
-  position: absolute;
-  margin-left: 8px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  padding: 8px;
-  top: -1.8rem;
+  top: -1.5rem;
+  margin-left: 1rem;
 }
 
 label:focus-within > .contact-input,
 input:not(:placeholder-shown),
 textarea:focus,
-textarea:not(:placeholder-shown) {
+textarea:not(:placeholder-shown),
+.button:hover,
+.button.right:active {
   border-color: var(--secondary-color);
 }
 
 textarea {
-  padding: 8px 16px;
-  font-size: 1rem;
+  padding: 0.5rem 1rem;
   max-height: 10rem;
-  min-height: 3rem;
+  min-height: 2rem;
   min-width: 100%;
-  z-index: 2;
 }
 
-.contact-input:focus-visible, textarea:focus-visible {
+.contact-input:focus-visible,
+textarea:focus-visible {
   border-right-width: 5px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   padding-top: 2rem;
-}
-
-.form-container {
-  width: 90%;
-  margin: auto;
-}
-
-form p {
-  font-size: 1.2rem;
 }

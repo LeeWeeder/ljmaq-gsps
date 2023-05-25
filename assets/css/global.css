@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
+:root {
+  --secondary-color: rgb(231, 231, 231);
+  --primary-color: #040404;
+  --shadow-color: #111;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Code", monospace;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+}
+
+html {
+  font-size: calc(0.1 * var(--grid-dimension));
+}
