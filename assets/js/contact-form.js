@@ -1,5 +1,8 @@
 const form = document.getElementById("contact-form");
 
+const snackbar = document.getElementById("snackbar");
+const responseText = document.getElementById("response");
+
 async function handleSubmit(event) {
   event.preventDefault();
   const data = new FormData(event.target);
@@ -11,19 +14,40 @@ async function handleSubmit(event) {
     }
   }).then(response => {
     if (response.ok) {
-      console.log("Thanks for your submission!");
+      showSnackbar(true);
       form.reset()
     } else {
       response.json().then(data => {
         if (Object.hasOwn(data, 'errors')) {
-          console.log(data["errors"].map(error => error["message"]).join(", "));
+          /**
+           * Remove on production:
+           * console.log(data["errors"].map(error => error["message"]).join(", "));
+           */
+          showSnackbar(false);
         } else {
-          console.log("Oops! There was a problem submitting your form");
+          showSnackbar(false);
         }
       })
     }
   }).catch(error => {
-    console.log("Oops! There was a problem submitting your form");
+    showSnackbar();
   });
 }
+
+function showSnackbar(success, message = "") {
+  /**
+   * TODO: documentation
+   */
+  if (success) {
+    responseText.innerText = message === "" ? "message sent successfully" : message;
+  } else {
+    responseText.innerText = message === "" ? "something went wrong" : message;
+  }
+  
+  snackbar.show();
+  setTimeout(() => {
+    snackbar.close();
+  }, 4000);
+}
+
 form.addEventListener("submit", handleSubmit)
