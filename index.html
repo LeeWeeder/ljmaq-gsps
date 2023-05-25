@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="max-size">
 
 <head>
   <meta charset="UTF-8">
@@ -17,88 +17,98 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="assets/icon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/page/index.css">
+  <link rel="stylesheet" href="assets/css/global.css">
   <script src="assets/js/index.js" defer="preload"></script>
 </head>
 
-<body>
-  <dialog id="contact-dialog">
-    <div class="form-container">
-      <form action="https://formsubmit.co/2b39e6ecb9a2a5ab7e758c3587236071" method="POST" class="contact-form">
-        <p>contact</p>
+<body class="max-size flex flex-center bg-primary">
+  <dialog id="contact-dialog" class="relative bg-primary margin-auto width-80-percent">
+    <div class="form-container margin-auto width-80-percent">
+      <form action="https://formsubmit.co/2b39e6ecb9a2a5ab7e758c3587236071" method="POST" class="contact-form flex max-width flex-column">
+        <p class="cursor-default color-secondary center-text">contact</p>
         <input type="text" name="_honey" style="display: none">
         <input type="hidden" name="_captcha" value="false">
 
         <input type="hidden" name="_next" value="https://leeweeder.github.io/ljmaq-gsps/#contact">
-        <div class="contact-inputs">
-          <label for="name">
-            <input type="text" class="contact-input" name="name" required tabindex="1" autocomplete="off"
+        <div class="contact-inputs flex z-2 flex-column">
+          <label for="name" class="flex relative align-items-center color-secondary">
+            <input type="text" class="contact-input max-size flex color-secondary" name="name" required tabindex="1" autocomplete="off"
               placeholder="name" id="name">
-            <span>name</span>
+            <span class="absolute">name</span>
           </label>
-          <label for="email">
-            <input type="email" class="contact-input" name="email" required tabindex="2" autocomplete="off"
+          <label for="email" class="flex relative align-items-center color-secondary">
+            <input type="email" class="contact-input max-size flex color-secondary" name="email" required tabindex="2" autocomplete="off"
               placeholder="email" id="email">
-            <span>email</span>
+            <span class="absolute">email</span>
           </label>
         </div>
 
-        <label for="message">
-          <textarea name="message" cols="0" rows="5" required tabindex="3" id="message" placeholder="message"></textarea>
-          <span>message</span>
+        <label for="message" class="flex relative align-items-center color-secondary">
+          <textarea name="message" cols="0" rows="5" required tabindex="3" id="message"
+            placeholder="message" class="max-width z-2"></textarea>
+          <span class="absolute">message</span>
         </label>
 
-        <div class="button-container">
-          <button type="button" value="cancel" class="button left" tabindex="5" onclick="closeDialog()">cancel</button>
-          <button type="submit" class="button right" tabindex="4">send message</button>
+        <div class="button-container flex max-width align-items-center">
+          <button type="button" value="cancel" class="button left cursor-pointer relative color-secondary" tabindex="5"
+            onclick="closeDialog()">cancel</button>
+          <button type="submit" class="button right cursor-pointer relative bg-secondary" tabindex="4">send message</button>
         </div>
       </form>
     </div>
   </dialog>
 
-
-  <div class="container">
-    <div class="row">
-      <a href="" class="link">
-        <div class="grid top">
+  <div class="container flex bg-secondary flex-column">
+    <div class="row relative flex">
+      <a href="" class="link relative cursor-pointer color-primary">
+        <div class="grid flex flex-center bg-primary relative top size-grid-dimen">
           <img src="assets/icon/transparent-personal-icon.svg" alt="icon" class="icon">
         </div>
       </a>
-      <div class="grid clickable" id="first-name">
-        <p>lyniel jhay</p>
+
+      <div class="grid flex flex-center bg-primary relative clickable cursor-pointer size-grid-dimen" id="first-name">
+        <p class="cursor-pointer color-secondary center-text">lyniel jhay</p>
       </div>
-      <div class="grid clickable" id="last-name">
-        <p>maquilan</p>
+
+      <div class="grid flex flex-center bg-primary relative clickable cursor-pointer size-grid-dimen" id="last-name">
+        <p class="cursor-pointer color-secondary center-text">maquilan</p>
       </div>
-      <div class="full-name grid hidden clickable" id="full-name">
-        <p>lyniel jhay maquilan</p>
+
+      <div class="full-name grid flex flex-center bg-primary relative hidden clickable cursor-pointer absolute h-grid-dimen"
+        id="full-name">
+        <p class="cursor-pointer color-secondary center-text">lyniel jhay maquilan</p>
       </div>
     </div>
-    <div class="row">
-      <div id="gsps">
-        <div class="grid clickable" id="gsps-grid">
-          <p>gsps</p>
+
+    <div class="row relative flex">
+      <div id="gsps" class="flex relative">
+        <div class="grid flex flex-center bg-primary relative clickable cursor-pointer size-grid-dimen" id="gsps-grid">
+          <p class="cursor-pointer color-secondary center-text">gsps</p>
         </div>
-        <div class="description">gender, society and peace studies</div>
+        <div class="description max-size flex cursor-default absolute align-items-center color-primary center-text">gender, society and peace studies</div>
       </div>
-      <div class="grid">
-        <p>bsit-1a</p>
+
+      <div class="grid flex flex-center bg-primary relative size-grid-dimen">
+        <p class="cursor-default color-secondary center-text">bsit-1a</p>
       </div>
-      <a href="https://github.com/LeeWeeder" class="link">
-        <div class="grid right">
-          <p>github</p>
+
+      <a href="https://github.com/LeeWeeder" class="link relative cursor-pointer color-primary">
+        <div class="grid flex flex-center bg-primary relative right size-grid-dimen">
+          <p class="cursor-pointer color-secondary center-text">github</p>
         </div>
       </a>
     </div>
-    <div class="row">
-      <div class="grid">
-        <button onclick="openDialog()" class="clickable button left" tabindex="0">
-          <p>contact</p>
+
+    <div class="row relative flex">
+      <div class="grid flex flex-center bg-primary relative size-grid-dimen">
+        <button onclick="openDialog()" class="clickable cursor-pointer button left relative color-secondary" tabindex="0">
+          <p class="cursor-pointer color-secondary center-text">contact</p>
         </button>
       </div>
-      <div class="grid"></div>
-      <div class="grid">
-        <a href="presentation.html" class="button right">see report</a>
+      <div class="grid flex flex-center bg-primary relative size-grid-dimen"></div>
+      <div class="grid flex flex-center bg-primary relative size-grid-dimen">
+        <a href="presentation.html" class="button right relative cursor-pointer bg-secondary color-primary">see report</a>
       </div>
     </div>
   </div>
