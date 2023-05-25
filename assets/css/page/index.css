@@ -291,11 +291,11 @@ textarea {
 .contact-input::placeholder,
 textarea::placeholder,
 .grid::before,
-dialog::before {
+#contact-dialog::before {
   opacity: 0;
 }
 
-dialog[open] {
+#contact-dialog[open] {
   animation-duration: 0.4s;
   animation-name: show-dialog-animation;
 }
