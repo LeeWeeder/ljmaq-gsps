@@ -2,6 +2,7 @@
   --secondary-color: rgb(231, 231, 231);
   --primary-color: #040404;
   --shadow-color: #111;
+  --error-color: rgb(121, 1, 1);
 }
 
 *,
