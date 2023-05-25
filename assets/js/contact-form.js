@@ -41,9 +41,12 @@ function showSnackbar(success, message = "") {
   if (success) {
     responseText.innerText = message === "" ? "message sent successfully" : message;
   } else {
+    snackbar.style.setProperty("background-color", "var(--error-color)");
+    responseText.style.setProperty("color", "var(--secondary-color)");
+    document.querySelector(".material-symbols-sharp").style.setProperty("color", "var(--secondary-color)");
     responseText.innerText = message === "" ? "something went wrong" : message;
   }
-  
+
   snackbar.show();
   setTimeout(() => {
     snackbar.close();
