@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+body {
+  min-width: 320px;
+}
+
 .max-width {
   width: 100%;
 }
@@ -168,11 +172,14 @@ a {
 .button {
   padding: 10px 5px;
   margin: 8px;
-  transition: all 0.2s;
   overflow: hidden;
   z-index: 3;
   border: var(--border-width) solid transparent;
   font-size: 0.8rem;
+}
+
+.button, .material-symbols-sharp {
+  transition: all 0.2s;
 }
 
 .button.left {
@@ -260,13 +267,15 @@ a:focus-visible,
 button:focus-visible,
 .button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+#snackbar:focus-visible {
   outline: none;
 }
 
 a:focus-visible,
 button:focus-visible,
-.button:focus-visible {
+.button:focus-visible,
+#snackbar:focus-visible {
   box-shadow: 0 0 0 2px rgb(204, 156, 0);
 }
 
@@ -344,4 +353,30 @@ textarea:focus-visible {
 
 form {
   padding-top: 2rem;
+}
+
+#snackbar {
+  z-index: 5;
+  width: 310px;
+  height: 50px;
+  padding: 0 12px;
+}
+
+.top-right {
+  top: 1rem;
+  right: 1rem;
+  margin-right: 0;
+}
+
+.bottom {
+  bottom: 1rem;
+}
+
+#response {
+  font-size: 11.52px;
+}
+
+.material-symbols-sharp:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
