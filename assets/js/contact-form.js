@@ -16,6 +16,7 @@ async function handleSubmit(event) {
     if (response.ok) {
       showSnackbar(true);
       form.reset()
+      document.getElementById("contact-dialog").close();
     } else {
       response.json().then(data => {
         if (Object.hasOwn(data, 'errors')) {
