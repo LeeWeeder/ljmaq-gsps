@@ -376,8 +376,6 @@ form {
   padding: 0 12px;
 }
 
-
-
 .top-right {
   top: 1rem;
   right: 1rem;
@@ -395,4 +393,18 @@ form {
 .material-symbols-sharp:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
+}
+
+.close-snackbar#snackbar[open] {
+  animation: close-snackbar-animation 0.5s;
+}
+
+@keyframes close-snackbar-animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
 }
