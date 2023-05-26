@@ -30,7 +30,7 @@ async function handleSubmit(event) {
       })
     }
   }).catch(error => {
-    showSnackbar();
+    showSnackbar(false);
   });
 }
 
