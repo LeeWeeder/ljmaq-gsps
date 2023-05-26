@@ -252,6 +252,7 @@ a {
 
 #contact-form-container {
   max-width: 500px;
+  min-width: 280px;
 }
 
 #contact-dialog {
