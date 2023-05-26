@@ -2,6 +2,7 @@
   --secondary-color: rgb(231, 231, 231);
   --primary-color: #040404;
   --shadow-color: #111;
+  --error-color: rgb(121, 1, 1);
 }
 
 *,
@@ -16,5 +17,5 @@
 }
 
 html {
-  font-size: calc(0.1 * var(--grid-dimension));
+  font-size: calc(0.12 * var(--grid-dimension));
 }
