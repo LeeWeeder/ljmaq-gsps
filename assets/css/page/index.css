@@ -177,11 +177,13 @@ a {
   border: var(--border-width) solid transparent;
 }
 
-.button p, .button {
+.button p,
+.button {
   font-size: 0.7rem;
 }
 
-.button, .material-symbols-sharp {
+.button,
+.material-symbols-sharp {
   transition: all 0.2s;
 }
 
@@ -250,6 +252,7 @@ a {
 
 #contact-form-container {
   max-width: 500px;
+  min-width: 280px;
 }
 
 #contact-dialog {
@@ -296,7 +299,7 @@ button:focus-visible,
 
 .contact-input {
   height: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .contact-input,
@@ -308,7 +311,8 @@ textarea {
 }
 
 .contact-input,
-textarea, span:not(.material-symbols-sharp) {
+textarea,
+span:not(.material-symbols-sharp) {
   font-size: 0.8rem;
 }
 
@@ -330,19 +334,24 @@ textarea::placeholder,
 }
 
 @keyframes show-snackbar-animation {
-  0%, 100% {
+  0%,
+  100% {
     right: 0;
     width: 155px;
     opacity: 0;
   }
-  1%, 15%, 85%, 90% {
+  1%,
+  15%,
+  85%,
+  90% {
     opacity: 1;
     width: 310px;
   }
   95% {
     opacity: 0;
   }
-  15%, 85% {
+  15%,
+  85% {
     right: 1rem;
   }
 }
@@ -365,20 +374,17 @@ dialog {
 
 span {
   top: -1.5rem;
-  margin-left: 1rem;
 }
 
 label:focus-within > .contact-input,
-input:not(:placeholder-shown),
 textarea:focus,
-textarea:not(:placeholder-shown),
 .button:hover,
 .button.right:active {
   border-color: var(--secondary-color);
 }
 
 textarea {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   max-height: 5rem;
   min-height: 2rem;
   min-width: 100%;
@@ -450,4 +456,16 @@ textarea:focus-visible {
 
 #contact-form p {
   font-size: 0.9rem;
+}
+
+label {
+  border: 2px solid transparent;
+}
+
+.success {
+  border-color: transparent;
+}
+
+.error {
+  border-color: var(--error-color);
 }
