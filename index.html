@@ -56,18 +56,18 @@
           <p class="cursor-default color-secondary center-text">contact</p>
           <div class="contact-inputs flex z-2 flex-column">
             <label for="name" class="flex relative align-items-center color-secondary">
-              <input type="text" class="contact-input max-size flex color-secondary" name="name" required tabindex="1"
+              <input type="text" oninput="validateNameInput()"class="contact-input max-size flex color-secondary" name="name" tabindex="1"
                 autocomplete="off" placeholder="name" id="name">
               <span class="absolute">name</span>
             </label>
             <label for="email" class="flex relative align-items-center color-secondary">
-              <input type="email" class="contact-input max-size flex color-secondary" name="email" required tabindex="2"
+              <input type="text" oninput="validateEmailInput()" class="contact-input max-size flex color-secondary" name="email" tabindex="2"
                 autocomplete="off" placeholder="email" id="email">
               <span class="absolute">email</span>
             </label>
           </div>
           <label for="message" class="flex relative align-items-center color-secondary">
-            <textarea name="message" cols="0" rows="5" required tabindex="3" id="message" placeholder="message"
+            <textarea oninput="validateMessageInput()" name="message" cols="0" rows="5"tabindex="3" id="message" placeholder="message"
               class="max-width z-2"></textarea>
             <span class="absolute">message</span>
           </label>

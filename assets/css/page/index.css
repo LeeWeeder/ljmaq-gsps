@@ -377,9 +377,7 @@ span {
 }
 
 label:focus-within > .contact-input,
-input:not(:placeholder-shown),
 textarea:focus,
-textarea:not(:placeholder-shown),
 .button:hover,
 .button.right:active {
   border-color: var(--secondary-color);
@@ -458,4 +456,16 @@ textarea:focus-visible {
 
 #contact-form p {
   font-size: 0.9rem;
+}
+
+label {
+  border: 2px solid transparent;
+}
+
+.success {
+  border-color: transparent;
+}
+
+.error {
+  border-color: var(--error-color);
 }
