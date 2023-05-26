@@ -177,11 +177,13 @@ a {
   border: var(--border-width) solid transparent;
 }
 
-.button p, .button {
+.button p,
+.button {
   font-size: 0.7rem;
 }
 
-.button, .material-symbols-sharp {
+.button,
+.material-symbols-sharp {
   transition: all 0.2s;
 }
 
@@ -308,7 +310,8 @@ textarea {
 }
 
 .contact-input,
-textarea, span:not(.material-symbols-sharp) {
+textarea,
+span:not(.material-symbols-sharp) {
   font-size: 0.8rem;
 }
 
@@ -330,19 +333,24 @@ textarea::placeholder,
 }
 
 @keyframes show-snackbar-animation {
-  0%, 100% {
+  0%,
+  100% {
     right: 0;
     width: 155px;
     opacity: 0;
   }
-  1%, 15%, 85%, 90% {
+  1%,
+  15%,
+  85%,
+  90% {
     opacity: 1;
     width: 310px;
   }
   95% {
     opacity: 0;
   }
-  15%, 85% {
+  15%,
+  85% {
     right: 1rem;
   }
 }
