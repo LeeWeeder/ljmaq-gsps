@@ -175,7 +175,10 @@ a {
   overflow: hidden;
   z-index: 3;
   border: var(--border-width) solid transparent;
-  font-size: 0.8rem;
+}
+
+.button p, .button {
+  font-size: 0.7rem;
 }
 
 .button, .material-symbols-sharp {
@@ -302,6 +305,11 @@ textarea {
   border: 1px solid transparent;
   transition: 0.2s all ease;
   color: rgb(128, 128, 128);
+}
+
+.contact-input,
+textarea, span:not(.material-symbols-sharp) {
+  font-size: 0.8rem;
 }
 
 .contact-input::placeholder,
@@ -438,4 +446,8 @@ textarea:focus-visible {
 
 #contact-dialog[open] #inner-snackbar {
   opacity: 0;
+}
+
+#contact-form p {
+  font-size: 0.9rem;
 }
