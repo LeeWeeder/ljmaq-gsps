@@ -104,14 +104,17 @@ function setGridSize() {
 }
 
 function setSnackbarPosition() {
-  const snackbar = document.getElementById("snackbar");
-  if (smallestDimension().name === "height") {
-    snackbar.classList.add("top-right");
-    snackbar.classList.remove("bottom");
-  } else {
-    snackbar.classList.remove("top-right");
-    snackbar.classList.add("bottom");
-  }
+  const snackbars = document.querySelectorAll(".snackbar");
+
+  snackbars.forEach(snackbar => {
+    if (smallestDimension().name === "height") {
+      snackbar.classList.add("top-right");
+      snackbar.classList.remove("bottom");
+    } else {
+      snackbar.classList.remove("top-right");
+      snackbar.classList.add("bottom");
+    }
+  });
 }
 
 setGridSize();

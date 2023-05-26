@@ -275,14 +275,14 @@ button:focus-visible,
 .button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
-#snackbar:focus-visible {
+.snackbar:focus-visible {
   outline: none;
 }
 
 a:focus-visible,
 button:focus-visible,
 .button:focus-visible,
-#snackbar:focus-visible {
+.snackbar:focus-visible {
   box-shadow: 0 0 0 2px rgb(204, 156, 0);
 }
 
@@ -316,17 +316,26 @@ textarea::placeholder,
   animation-name: show-dialog-animation;
 }
 
-#snackbar[open] {
-  animation: show-snackbar-animation 4s ease-in-out;
+.snackbar[open] {
+  animation: show-snackbar-animation 4s ease;
   opacity: 0;
 }
 
 @keyframes show-snackbar-animation {
   0%, 100% {
+    right: 0;
+    width: 155px;
+    opacity: 0;
+  }
+  1%, 15%, 85%, 90% {
+    opacity: 1;
+    width: 310px;
+  }
+  95% {
     opacity: 0;
   }
   15%, 85% {
-    opacity: 1;
+    right: 1rem;
   }
 }
 
@@ -372,11 +381,12 @@ textarea:focus-visible {
   border-right-width: 5px;
 }
 
-#snackbar {
-  z-index: 5;
+.snackbar {
+  z-index: 10;
   width: 310px;
   height: 50px;
   padding: 0 12px;
+  transition: all 0.5s;
 }
 
 .top-right {
@@ -389,7 +399,7 @@ textarea:focus-visible {
   bottom: 1rem;
 }
 
-#response {
+.response {
   font-size: 11.52px;
 }
 
@@ -398,15 +408,24 @@ textarea:focus-visible {
   color: var(--secondary-color);
 }
 
-.close-snackbar#snackbar[open] {
-  animation: close-snackbar-animation 0.5s;
+.close-snackbar.snackbar[open] {
+  animation: close-snackbar-animation 0.6s ease;
 }
 
 @keyframes close-snackbar-animation {
-  from {
+  0% {
     opacity: 1;
+    width: 310px;
   }
-  to {
+  33% {
+    opacity: 1;
+    width: 310px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    width: 155px;
     right: 0;
     opacity: 0;
   }
@@ -415,4 +434,8 @@ textarea:focus-visible {
 #contact-form {
   margin: 0 2rem;
   padding-top: 1.2rem;
+}
+
+#contact-dialog[open] #inner-snackbar {
+  opacity: 0;
 }

@@ -32,9 +32,9 @@
 
 <body class="max-size flex flex-center bg-primary">
   
-  <dialog class="bg-secondary margin-auto absolute" id="snackbar">
+  <dialog class="bg-secondary margin-auto absolute snackbar" id="inner-snackbar">
     <div class="flex max-size">
-      <p id="response" class="max-size flex align-items-center cursor-default"></p>
+      <p class="max-size flex align-items-center cursor-default response"></p>
       <span class="material-symbols-sharp cursor-pointer margin-auto" id="close" onclick="closeSnackbar()">
         close
       </span>
@@ -43,15 +43,15 @@
 
 
   <dialog id="contact-dialog" class="max-size">
-    <dialog class="bg-secondary absolute" id="snackbar" open>
+    <dialog class="bg-secondary margin-auto absolute snackbar">
       <div class="flex max-size">
-        <p id="response" class="max-size flex align-items-center cursor-default"></p>
+        <p class="max-size flex align-items-center cursor-default response"></p>
         <span class="material-symbols-sharp cursor-pointer margin-auto" id="close" onclick="closeSnackbar()">
           close
         </span>
       </div>
     </dialog>
-    
+  
     <div class="max-size flex flex-center">
       <div class="bg-primary relative" id="contact-form-container">
         <form id="contact-form" action="https://formspree.io/f/mgebbzvn"
