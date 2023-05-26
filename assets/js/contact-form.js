@@ -53,4 +53,13 @@ function showSnackbar(success, message = "") {
   }, 4000);
 }
 
+function closeSnackbar() {
+  const openSnackbar = document.querySelector("#snackbar[open]");
+  openSnackbar.classList.add("close-snackbar");
+  setTimeout(() => {
+    snackbar.close();
+    openSnackbar.classList.remove("close-snackbar");
+  }, 300);
+}
+
 form.addEventListener("submit", handleSubmit)
