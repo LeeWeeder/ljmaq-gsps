@@ -5,7 +5,7 @@
 
 .max-size,
 .grid::before,
-#contact-dialog::before {
+#contact-form-container::before {
   height: 100%;
   width: 100%;
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .grid:hover::before,
-#contact-dialog:hover::before {
+#contact-form-container:hover::before {
   opacity: 1;
 }
 
@@ -50,13 +50,13 @@ body {
 }
 
 .grid::before,
-#contact-dialog::before,
+#contact-form-container::before,
 .button::before {
   content: "";
 }
 
 .grid::before,
-#contact-dialog::before {
+#contact-form-container::before {
   top: 0;
   transition: opacity 500ms;
   left: 0;
@@ -64,11 +64,11 @@ body {
 
 .z-2,
 .grid::before,
-#contact-dialog::before {
-  z-index: 2;
+#contact-form-container::before {
+  z-index: 0;
 }
 
-#contact-dialog::before {
+#contact-form-container::before {
   background: radial-gradient(
     1000px circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.1),
@@ -77,7 +77,7 @@ body {
 }
 
 @media (hover: none) {
-  #contact-dialog::before {
+  #contact-form-container::before {
     opacity: 1;
   }
 }
@@ -159,7 +159,7 @@ a {
 
 .absolute,
 .grid::before,
-#contact-dialog::before,
+#contact-form-container::before,
 .button::before {
   position: absolute;
 }
@@ -245,8 +245,15 @@ a {
   width: 80%;
 }
 
-#contact-dialog {
+#contact-form-container {
   max-width: 500px;
+}
+
+#contact-dialog {
+  margin: 0;
+  max-width: none;
+  max-height: none;
+  background-color: transparent;
 }
 
 input {
@@ -300,7 +307,7 @@ textarea {
 .contact-input::placeholder,
 textarea::placeholder,
 .grid::before,
-#contact-dialog::before {
+#contact-form-container::before {
   opacity: 0;
 }
 
@@ -365,10 +372,6 @@ textarea:focus-visible {
   border-right-width: 5px;
 }
 
-form {
-  padding-top: 2rem;
-}
-
 #snackbar {
   z-index: 5;
   width: 310px;
@@ -407,4 +410,9 @@ form {
     right: 0;
     opacity: 0;
   }
+}
+
+#contact-form {
+  margin: 0 2rem;
+  padding-top: 1.2rem;
 }
