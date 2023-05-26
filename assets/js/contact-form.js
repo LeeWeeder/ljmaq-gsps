@@ -1,7 +1,7 @@
 const form = document.getElementById("contact-form");
 
-const snackbar = document.getElementById("snackbar");
-const responseText = document.getElementById("response");
+const snackbars = document.querySelectorAll(".snackbar");
+const responseTexts = document.querySelectorAll(".response");
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -35,32 +35,49 @@ async function handleSubmit(event) {
   });
 }
 
+let timeoutID;
+
 function showSnackbar(success, message = "") {
   /**
    * TODO: documentation
    */
   if (success) {
-    responseText.innerText = message === "" ? "message sent successfully" : message;
+    responseTexts.forEach(responseText => {
+      responseText.innerText = message === "" ? "message sent successfully" : message;
+    });
   } else {
-    snackbar.style.setProperty("background-color", "var(--error-color)");
-    responseText.style.setProperty("color", "var(--secondary-color)");
-    document.querySelector(".material-symbols-sharp").style.setProperty("color", "var(--secondary-color)");
-    responseText.innerText = message === "" ? "something went wrong" : message;
+    snackbars.forEach(snackbar => {
+      snackbar.style.setProperty("background-color", "var(--error-color)");
+    });
+
+    responseTexts.forEach(responseText => {
+      responseText.style.setProperty("color", "var(--secondary-color)");
+      responseText.innerText = message === "" ? "something went wrong" : message;
+    });
+    document.querySelectorAll(".material-symbols-sharp").forEach(closeButton => {
+      closeButton.style.setProperty("color", "var(--secondary-color)");
+    });
   }
 
-  snackbar.show();
-  setTimeout(() => {
-    snackbar.close();
-  }, 4000);
+  snackbars.forEach(snackbar => {
+    snackbar.show();
+    timeoutID = setTimeout(() => {
+      snackbar.close();
+    }, 4000);
+  });
 }
 
 function closeSnackbar() {
-  const openSnackbar = document.querySelector("#snackbar[open]");
-  openSnackbar.classList.add("close-snackbar");
-  setTimeout(() => {
-    snackbar.close();
+  const openSnackbars = document.querySelectorAll(".snackbar[open]");
+  clearTimeout(timeoutID);
+  openSnackbars.forEach(openSnackbar => {
+    openSnackbar.classList.add("close-snackbar");
+
+    setTimeout(() => {
+    openSnackbar.close();
     openSnackbar.classList.remove("close-snackbar");
   }, 300);
+  });
 }
 
-form.addEventListener("submit", handleSubmit)
+form.addEventListener("submit", handleSubmit);
